@@ -1,4 +1,4 @@
-class EventController < ApplicationController
+class MatchesController < ApplicationController
   def index
   end
 

@@ -5,6 +5,8 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 
+/app/controllers/events_controller.rb
+
 
 # Ignore bundler config.
 /.bundle
