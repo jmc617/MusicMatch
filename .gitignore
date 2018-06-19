@@ -6,7 +6,7 @@
 
 
 /app/controllers/events_controller.rb
-/app/assets/javascripts/index.js
+
 
 # Ignore bundler config.
 /.bundle
