@@ -4,6 +4,12 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    Change your <%= f.label :avatar %>
+  <p>  <%= image_tag @user.avatar.url(:thumb) %> </p>
+    <p> <%=f.file_field :avatar %> </p>
+  </div>
+
+  <div class="field">
     <%= f.label :first_name %><br />
     <%= f.text_field :firstName, autofocus: true, autocomplete: "firstName" %>
   </div>
