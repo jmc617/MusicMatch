@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'welcome/index'
+  get 'events/search' => 'events#search'
 
   resources :events
   resources :matches
