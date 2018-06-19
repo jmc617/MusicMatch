@@ -13,7 +13,8 @@
     <% if user_signed_in? %>
       <%= link_to'Logout', destroy_user_session_path, method: :delete, class:"" %>
       |
-      <%= link_to 'Edit', edit_user_registration_path %> 
+      <%= link_to 'Edit', edit_user_registration_path %>
+      <p class="currentUserNavbar"><%= image_tag(current_user.avatar.url(:thumb)) %></p>
     <% else %>
       <%= link_to "Sign Up", new_user_registration_path, class:"" %>
       <%= link_to "Log In", new_user_session_path, class:"" %>
