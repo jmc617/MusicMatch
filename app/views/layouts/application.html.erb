@@ -18,8 +18,12 @@
       |
       <%= link_to'Logout', destroy_user_session_path, method: :delete, class:"" %>
       |
-      <%= link_to 'Edit Profile', edit_user_registration_path %>
-      <p class="currentUserNavbar"><%= image_tag(current_user.avatar.url(:thumb)) %></p>
+
+      <%= link_to 'Edit', edit_user_registration_path %>
+      <div class="currentUserNavbar">
+      <a href="#"><%= image_tag(current_user.avatar.url(:thumb))%> </a>
+      </div>
+
     <% else %>
       |
       <%= link_to "Sign Up", new_user_registration_path, class:"" %>
