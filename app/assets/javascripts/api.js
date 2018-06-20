@@ -22,7 +22,7 @@ console.log(searchValue);
     dataType: "json",
     success: function(json) {
                 console.log(json);
-                for (var i = 0; i <= 10; i++) {
+                for (var i = 0; i <= 20; i++) {
 
                   // results.innerHTML += json._embedded.events[i].name
                   // results.innerHTML += '~'+json._embedded.events[i]._embedded.venues[0].name
@@ -53,6 +53,21 @@ console.log(searchValue);
                   input.type = 'hidden'
                   input.value = json._embedded.events[i].images[4].url
                   input.name = 'img_url'
+
+                  input = form.appendChild(document.createElement('input'))
+                  input.type = 'hidden'
+                  input.value = json._embedded.events[i].url
+                  input.name = 'url'
+
+                  input = form.appendChild(document.createElement('input'))
+                  input.type = 'hidden'
+                  input.value = json._embedded.events[i].priceRanges[0].min
+                  input.name = 'price_min'
+
+                  input = form.appendChild(document.createElement('input'))
+                  input.type = 'hidden'
+                  input.value = json._embedded.events[i].priceRanges[0].max
+                  input.name = 'price_max'
 
                   submit = form.appendChild(document.createElement('input'));
                   submit.type = 'submit';

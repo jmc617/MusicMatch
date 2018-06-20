@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_19_154347) do
+ActiveRecord::Schema.define(version: 2018_06_20_182011) do
 
   create_table "events", force: :cascade do |t|
     t.string "date"
@@ -18,6 +18,9 @@ ActiveRecord::Schema.define(version: 2018_06_19_154347) do
     t.string "performer"
     t.string "img_url"
     t.integer "user_id"
+    t.string "url"
+    t.integer "price_min"
+    t.integer "price_max"
   end
 
   create_table "matches", force: :cascade do |t|
