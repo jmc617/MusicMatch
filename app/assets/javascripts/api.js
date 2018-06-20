@@ -30,14 +30,29 @@ console.log(searchValue);
                   display.innerHTML = json._embedded.events[i].name+json._embedded.events[i]._embedded.venues[0].name
                   var form = results.appendChild(document.createElement('form'));
 
-                  form.name = 'input';
+                  form.name = 'event';
                   form.action = '/events';
                   form.method = 'post';
 
                   input = form.appendChild(document.createElement('input'))
                   input.type = 'hidden'
                   input.value = json._embedded.events[i].name
-                  input.name = 'event[name]'
+                  input.name = 'performer'
+
+                  input = form.appendChild(document.createElement('input'))
+                  input.type = 'hidden'
+                  input.value = json._embedded.events[i]._embedded.venues[0].name
+                  input.name = 'location'
+
+                  input = form.appendChild(document.createElement('input'))
+                  input.type = 'hidden'
+                  input.value = json._embedded.events[i].dates.start.localDate
+                  input.name = 'date'
+
+                  input = form.appendChild(document.createElement('input'))
+                  input.type = 'hidden'
+                  input.value = json._embedded.events[i].images[4].url
+                  input.name = 'img_url'
 
                   submit = form.appendChild(document.createElement('input'));
                   submit.type = 'submit';
