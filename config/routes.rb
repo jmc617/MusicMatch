@@ -12,5 +12,5 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
-  root 'welcome#index'
+  root 'event#index'
 end
