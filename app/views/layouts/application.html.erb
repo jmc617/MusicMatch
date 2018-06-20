@@ -21,7 +21,7 @@
 
       <%= link_to 'Edit', edit_user_registration_path %>
       <div class="currentUserNavbar">
-      <a href="#"><%= image_tag(current_user.avatar.url(:thumb))%> </a>
+      <a href="/users/<%=current_user.id%>"><%= image_tag(current_user.avatar.url(:thumb))%> </a>
       </div>
 
     <% else %>
