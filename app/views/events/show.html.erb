@@ -1,10 +1,21 @@
 <h1>Event#show</h1>
 <p>Find me in app/views/event/show.html.erb</p>
-<%= @event.performer %>
-<% if @event.user_id != current_user.id %>
-  <a href="#">Create Match!</a>
-<% else %>
 
-<%= link_to 'Delete', event_path, method: :delete,
-                       data: { confirm: 'Are you sure?' } %>
+<%= @event.performer %>
+
+<% if user_signed_in? %>
+  <% if @event.user_id != current_user.id %>
+
+    <%= form_for :matches, url: {action: "create", controller: "matches"} do |f| %>
+    <%= hidden_field_tag "event_id", @event.id %>
+    <%= f.submit %>
+
+  <%end%>
+
+
+  <% else %>
+    <%= link_to 'Delete', event_path, method: :delete,
+                        data: { confirm: 'Are you sure?' } %>
+    <% end %>
+
 <% end %>

@@ -24,6 +24,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @match = Match.new()
   end
 
   def edit
