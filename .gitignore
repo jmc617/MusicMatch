@@ -6,6 +6,7 @@
 
 
 /app/controllers/events_controller.rb
+/app/assets/javascripts/api.js
 
 
 # Ignore bundler config.
