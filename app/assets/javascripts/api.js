@@ -2,7 +2,7 @@ $(document).on("turbolinks:load", function(){
 var searchSubmit = document.getElementById('search-submit')
 var results = document.getElementById('results')
 var searchValue = document.getElementById('search-value').value
-
+var key = config.KEY
 
 console.log(searchValue);
   searchSubmit.addEventListener('click', function() {
@@ -17,7 +17,7 @@ console.log(searchValue);
   function search(value, results) {
     $.ajax({
     type:"GET",
-    url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey=oUPwzHwcM1P78UtYeEbbaHZAxcIU93DC&keyword=" + value,
+    url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey="+key+"&keyword=" + value,
     async:true,
     dataType: "json",
     success: function(json) {
