@@ -1,0 +1,15 @@
+// Place all the styles related to the Event controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.hero-image {
+    background-image: url("http://verdewall.com/wp-content/uploads/2016/08/Cat-Wallpaper-451-1024x768.jpg");
+
+    /* Set a specific height */
+    height: 100%;
+
+    /* Position and center the image to scale nicely on all screens */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}

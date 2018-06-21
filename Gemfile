@@ -33,6 +33,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'paperclip'
 gem 'aws-sdk', '~> 2'
 gem 'public_activity'
+gem 'bootstrap'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
