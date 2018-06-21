@@ -34,6 +34,7 @@
   <div>events:</div>
   <% @user.events.each do |e| %>
     <div>
+      
       <a href="/events/<%= e.id %>"><%= e.performer %></a>
     </div>
   <% end %>
