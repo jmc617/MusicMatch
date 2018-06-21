@@ -24,8 +24,7 @@
         <a href="/events/<%= m.event_id %>"> View Event </a>
       </div>
       <div>
-            <%= link_to 'Delete', match_path, method: :delete,
-                                data: { confirm: 'Are you sure?' } %>
+        <a href="/matches/<%= m.id %>/edit">Delete Match</a>
       </div>
     <% end %>
   <% end %>
