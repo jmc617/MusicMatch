@@ -1,31 +1,34 @@
 <div class="card">
+<center>
 <div class="profilepage" ><%= image_tag @user.avatar.url(:medium), class: "img-fluid" %></div>
-<%=@user.followers.count%>
+</center>
+Followers
+<p><%=@user.followers.count%></p>
 <%=render "follow_button"%>
 <h1><%=@user.username%> </h1>
 <h4><%=full_name%></h4>
 <h4><%=@user.location%> </h4>
 <p> <%=@user.aboutMe%> </p>
 
+<div class="events">
 <% if @user.id == current_user.id %>
   <% if @user.events.exists? %>
-    <div>your events:</div>
+    <div>YOUR EVENTS:</div>
     <% @user.events.each do |e| %>
       <div>
         <a href="/events/<%= e.id %>"><%= e.performer %></a>
       </div>
     <% end %>
   <% end %>
-
       <% if @user.matches.exists? %>
-      <div>your matches:</div>
+      <div>YOUR MATHCES:</div>
       <% @user.matches.each do |m| %>
       <div>
         <%= Event.find(m.event_id).performer %>
-        <a href="/events/<%= m.event_id %>"> View Event </a>
+        <a class="btn btn-info" href="/events/<%= m.event_id %>"> View Event </a>
       </div>
       <div>
-        <a href="/matches/<%= m.id %>/edit">Delete Match</a>
+        <a class="btn btn-danger" href="/matches/<%= m.id %>/edit">Delete Match</a>
       </div>
     <% end %>
   <% end %>
@@ -34,7 +37,7 @@
   <div>events:</div>
   <% @user.events.each do |e| %>
     <div>
-      
+
       <a href="/events/<%= e.id %>"><%= e.performer %></a>
     </div>
   <% end %>
@@ -50,4 +53,5 @@
   <% end %>
 <% end %>
 <% end %>
+</div>
 </div>
