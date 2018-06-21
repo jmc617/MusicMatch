@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
+  get 'activities/index'
+  get 'feed/index'
   get 'users/show'
   get 'events/search' => 'events#search'
 
   resources :events
+  resources :feed
   resources :matches
   devise_for :users
   resources :users
