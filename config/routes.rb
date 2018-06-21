@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'rooms/show'
   get 'users/show'
   get 'events/search' => 'events#search'
 
