@@ -25,6 +25,7 @@
 <div class="col">
   <img class="icons" src="/assets/megaphone-10-240.png" height="50" alt="">
   <h1> Social Feed </h1>
+  <div class="box-content">
   <% @activities.each do |activity| %>
   <div class="activity">
       <%= link_to activity.owner.username, activity.owner if activity.owner %>
