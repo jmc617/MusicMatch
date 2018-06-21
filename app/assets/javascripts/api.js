@@ -22,12 +22,50 @@ console.log(searchValue);
     dataType: "json",
     success: function(json) {
                 console.log(json);
-                for (var i = 0; i <= 20; i++) {
+                //if json does not have _embedded(which is where event data is stored if found)
+                if ( !json.hasOwnProperty('_embedded')) {
+                  var message = results.appendChild(document.createElement('div'));
+                  message.innerHTML = 'Sorry! No results found. Try again!'
+                } else {
+                //display first 20 results
+                for (var i = 0; i < 20; i++) {
 
-                  // results.innerHTML += json._embedded.events[i].name
-                  // results.innerHTML += '~'+json._embedded.events[i]._embedded.venues[0].name
                   var display = results.appendChild(document.createElement('div'));
-                  display.innerHTML = json._embedded.events[i].name+json._embedded.events[i]._embedded.venues[0].name
+
+                  var picture = display.appendChild(document.createElement('img'));
+                  picture.class = ''
+                  picture.alt = ' artist image'
+                  picture.src = json._embedded.events[i].images[4].url
+
+                  var artist = display.appendChild(document.createElement('div'));
+                  artist.innerHTML = json._embedded.events[i].name
+
+                  var venue = display.appendChild(document.createElement('div')); venue.innerHTML= json._embedded.events[i]._embedded.venues[0].name
+
+                  //formats date from json in mm/dd/yyyy
+                  var formatDate = function(date){
+                    var split = date.split('-');
+                    var holder = split[0]
+                    split[0] = split[1]
+                    split[1] = split[2]
+                    split[2] = holder
+
+                    var formatted = split.join('/')
+                    return formatted
+                  }
+
+                  var date = display.appendChild(document.createElement('div'));
+                  date.innerHTML= formatDate(json._embedded.events[i].dates.start.localDate)
+
+                  var website = display.appendChild(document.createElement('a'));
+                  website.href= json._embedded.events[i].url
+                  website.innerHTML= 'More Info/Purchase Tickets'
+
+                  var price = display.appendChild(document.createElement('div'));
+                  price.innerHTML = 'Price range: $'+Math.round(json._embedded.events[i].priceRanges[0].min)
+                  + ' - $'
+                  + Math.round(json._embedded.events[i].priceRanges[0].max)
+
                   var form = results.appendChild(document.createElement('form'));
 
                   form.name = 'event';
@@ -46,7 +84,7 @@ console.log(searchValue);
 
                   input = form.appendChild(document.createElement('input'))
                   input.type = 'hidden'
-                  input.value = json._embedded.events[i].dates.start.localDate
+                  input.value = formatDate(json._embedded.events[i].dates.start.localDate)
                   input.name = 'date'
 
                   input = form.appendChild(document.createElement('input'))
@@ -61,12 +99,12 @@ console.log(searchValue);
 
                   input = form.appendChild(document.createElement('input'))
                   input.type = 'hidden'
-                  input.value = json._embedded.events[i].priceRanges[0].min
+                  input.value = Math.round(json._embedded.events[i].priceRanges[0].min)
                   input.name = 'price_min'
 
                   input = form.appendChild(document.createElement('input'))
                   input.type = 'hidden'
-                  input.value = json._embedded.events[i].priceRanges[0].max
+                  input.value = Math.round(json._embedded.events[i].priceRanges[0].max)
                   input.name = 'price_max'
 
                   submit = form.appendChild(document.createElement('input'));
@@ -74,7 +112,7 @@ console.log(searchValue);
                   submit.value = 'Create Event';
 
                 }
-
+              }
              },
     error: function(xhr, status, err) {
 
@@ -82,41 +120,3 @@ console.log(searchValue);
     })
   }
 })
-
-
-// function search(value, results) {
-//   $.ajax({
-//   type:"GET",
-//   url:"https://app.ticketmaster.com/discovery/v2/events.json?apikey=oUPwzHwcM1P78UtYeEbbaHZAxcIU93DC&keyword=" + value,
-//   async:true,
-//   dataType: "json",
-//   success: function(json) {
-//               console.log(json);
-//               for (var i = 0; i <= 10; i++) {
-//
-//                 results.innerHTML += json._embedded.events[i].name
-//                 results.innerHTML += '~'+json._embedded.events[i]._embedded.venues[0].name
-//
-//                 var form = results.appendChild(document.createElement('form'));
-//
-//                 form.name = 'input';
-//                 form.action = '/placeholder-for-create-event-method';
-//                 form.method = 'post';
-//
-//                 input = form.appendChild(document.createElement('input'))
-//                 input.type = 'hidden'
-//                 input.value = json._embedded.events[i].name
-//                 input.name = 'event[name]'
-//
-//                 submit = form.appendChild(document.createElement('input'));
-//                 submit.type = 'submit';
-//                 submit.value = 'Create Event';
-//
-//               }
-//
-//            },
-//   error: function(xhr, status, err) {
-//
-//            }
-//   })
-// }
