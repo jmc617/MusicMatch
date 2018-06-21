@@ -21,7 +21,7 @@ Followers
     <% end %>
   <% end %>
       <% if @user.matches.exists? %>
-      <div>YOUR MATHCES:</div>
+      <div>YOUR MATCHES:</div>
       <% @user.matches.each do |m| %>
       <div>
         <%= Event.find(m.event_id).performer %>
