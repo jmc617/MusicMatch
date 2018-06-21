@@ -13,13 +13,6 @@ skip_before_action :verify_authenticity_token, :only => :assign
     end
   end
 
-  def index
-  end
-
-  def show
-
-  end
-
   def edit
   end
 
@@ -27,9 +20,6 @@ skip_before_action :verify_authenticity_token, :only => :assign
     match = Match.find(params[:id])
     match.destroy
     redirect_to '/'
-  end
-
-  def new
   end
 
   def match_params
