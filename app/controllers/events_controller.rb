@@ -4,6 +4,8 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+    @activities = PublicActivity::Activity.order("created_at desc")
+    @users = User.all
   end
 
   def create
@@ -33,6 +35,8 @@ class EventsController < ApplicationController
 
   # def new
   # end
+
+
 
   private
   def event_params
