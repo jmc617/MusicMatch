@@ -1,6 +1,6 @@
-Started An Event
+Started An
 <% if activity.trackable && activity.trackable.present? %>
-  <%= link_to activity.trackable, activity.trackable %>
+  <%= link_to activity.trackable_type, activity.trackable %>
 <% else %>
-  which has since been removed
+  Event which has since been removed
 <% end %>
