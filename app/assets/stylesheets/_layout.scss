@@ -1,4 +1,8 @@
-.currentUserNavbar{
+body {
+   background: red;
+ }
+
+.nav-item{
 background-color: white;
 border: 1px solid #d9d9d9;
 border-radius: 25px;
@@ -9,4 +13,16 @@ width: 50px;
 overflow: hidden;
 text-align: center;
 img { width: 100% }
+}
+
+.navbar{
+  height: 55px;
+}
+
+#pg-title {
+  font-family: 'Comfortaa', cursive;
+  font-weight: bold;
+  font-size: 40px;
+  color: white;
+
 }

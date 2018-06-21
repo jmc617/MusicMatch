@@ -4,6 +4,8 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+    @activities = PublicActivity::Activity.order("created_at desc")
+    @users = User.all
   end
 
   def create
@@ -24,13 +26,12 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @matches = @event.matches
+
   end
 
-  def edit
+  def new
   end
-
-  # def new
-  # end
 
   private
   def event_params

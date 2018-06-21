@@ -8,30 +8,52 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <script type='text/javascript' src='config.js'></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="icon" href="/assets/music.png">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
   </head>
 
-  <body>
-    <%= link_to 'Events', events_path, class:'' %>
+  <body <body style="background-color:#262324">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light fixed-top" style="background-color: #14A697">
+      <a id='pg-title' class="navbar-brand" href="/events">MusicMatch</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+     <div class="collapse navbar-collapse" id="navbarResponsive">
+         <div class="navbar-nav ml-auto">
     <% if user_signed_in? %>
-      |
-      <%= link_to 'Create Event', new_event_path, class:'' %>
-      |
-      <%= link_to'Logout', destroy_user_session_path, method: :delete, class:"" %>
-      |
-      <%= link_to 'Edit', edit_user_registration_path %>
-      |
+
+
+      
       <%= link_to 'Chat', rooms_show_path %>
 
       <div class="currentUserNavbar">
+
+        <span class="navbar-text">
+          <%= link_to 'Create Event', new_event_path, class:"nav-link" %>
+        </span>
+        <span class="navbar-text">
+        <%= link_to 'Edit', edit_user_registration_path, class:"nav-link" %>
+        </span>
+        <span class="navbar-text">
+          <%= link_to'Logout', destroy_user_session_path, method: :delete, class:"nav-link"%>
+        </span>
+      <div class="nav-item">
+
       <a href="/users/<%=current_user.id%>"><%= image_tag(current_user.avatar.url(:thumb))%> </a>
       </div>
 
     <% else %>
-      |
-      <%= link_to "Sign Up", new_user_registration_path, class:"" %>
-      |
-      <%= link_to "Log In", new_user_session_path, class:"" %>
+      <span class="navbar-text">
+      <%= link_to "Sign Up", new_user_registration_path, class:"nav-link" %>
+    </span>
+    <span class="navbar-text">
+      <%= link_to "Log In", new_user_session_path, class:"nav-link" %>
+    </span>
       <% end %>
+    </div>
+    </div>
+      </nav>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
