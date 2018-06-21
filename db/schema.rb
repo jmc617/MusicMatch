@@ -10,6 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
+ActiveRecord::Schema.define(version: 2018_06_21_182409) do
+
 ActiveRecord::Schema.define(version: 2018_06_20_204946) do
 
   create_table "activities", force: :cascade do |t|
@@ -31,6 +34,7 @@ ActiveRecord::Schema.define(version: 2018_06_20_204946) do
     t.index ["trackable_type", "trackable_id"], name: "index_activities_on_trackable_type_and_trackable_id"
   end
 
+
   create_table "events", force: :cascade do |t|
     t.string "date"
     t.string "location"
@@ -47,6 +51,14 @@ ActiveRecord::Schema.define(version: 2018_06_20_204946) do
     t.integer "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "relationships", force: :cascade do |t|

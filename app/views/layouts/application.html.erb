@@ -22,6 +22,13 @@
      <div class="collapse navbar-collapse" id="navbarResponsive">
          <div class="navbar-nav ml-auto">
     <% if user_signed_in? %>
+
+
+      
+      <%= link_to 'Chat', rooms_show_path %>
+
+      <div class="currentUserNavbar">
+
         <span class="navbar-text">
           <%= link_to 'Create Event', new_event_path, class:"nav-link" %>
         </span>
@@ -32,6 +39,7 @@
           <%= link_to'Logout', destroy_user_session_path, method: :delete, class:"nav-link"%>
         </span>
       <div class="nav-item">
+
       <a href="/users/<%=current_user.id%>"><%= image_tag(current_user.avatar.url(:thumb))%> </a>
       </div>
 

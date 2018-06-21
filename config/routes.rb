@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   root 'events#index'
 
+
+  get 'rooms/show'
+
   get 'activities/index'
   get 'feed/index'
+
   get 'users/show'
   get 'events/search' => 'events#search'
 
