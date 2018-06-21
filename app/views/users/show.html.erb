@@ -5,3 +5,47 @@
 <h4><%=full_name%></h4>
 <h4><%=@user.location%> </h4>
 <p> <%=@user.aboutMe%> </p>
+
+<% if @user.id == current_user.id %>
+  <% if @user.events.exists? %>
+    <div>your events:</div>
+    <% @user.events.each do |e| %>
+      <div>
+        <a href="/events/<%= e.id %>"><%= e.performer %></a>
+      </div>
+    <% end %>
+  <% end %>
+
+      <% if @user.matches.exists? %>
+      <div>your matches:</div>
+      <% @user.matches.each do |m| %>
+      <div>
+        <%= Event.find(m.event_id).performer %>
+        <a href="/events/<%= m.event_id %>"> View Event </a>
+      </div>
+      <div>
+            <%= link_to 'Delete', match_path, method: :delete,
+                                data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+  <% end %>
+<% else %>
+<% if @user.events.exists? %>
+  <div>events:</div>
+  <% @user.events.each do |e| %>
+    <div>
+      <a href="/events/<%= e.id %>"><%= e.performer %></a>
+    </div>
+  <% end %>
+<% end %>
+
+    <% if @user.matches.exists? %>
+    <div>matches:</div>
+    <% @user.matches.each do |m| %>
+    <div>
+      <%= Event.find(m.event_id).performer %>
+      <a href="/events/<%= m.event_id %>"> View Event </a>
+    </div>
+  <% end %>
+<% end %>
+<% end %>
