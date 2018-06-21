@@ -1,3 +1,4 @@
+<div class="card">
 <div class="profilepage" ><%= image_tag @user.avatar.url(:medium), class: "img-fluid" %></div>
 <%=@user.followers.count%>
 <%=render "follow_button"%>
@@ -48,3 +49,4 @@
   <% end %>
 <% end %>
 <% end %>
+</div>
