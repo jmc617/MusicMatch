@@ -7,7 +7,7 @@
   To get more information or buy tickets click
   <a target="_blank" href="<%=@event.url%>">here.</a>
 </div>
-<div>Ticket price range: <%= @event.price_min %> - <%= @event.price_max %></div>
+<div>Ticket price range: $<%= @event.price_min %> - $<%= @event.price_max %></div>
 <%= @event.url %>
 <% if @matches.exists? %>
   <div>Matches:
@@ -31,7 +31,7 @@
 <% end %>
 <% if @event.user_id == current_user.id %>
     <%= link_to 'Delete', event_path, method: :delete,
-                        data: { confirm: 'Are you sure?' } %>
+                        data: { confirm: 'Are you sure? You will delete this event and all matches.' } %>
 
 <% end %>
 <% end %>
