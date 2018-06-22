@@ -23,13 +23,8 @@
          <div class="navbar-nav ml-auto">
     <% if user_signed_in? %>
 
-      <%= link_to 'Chat', rooms_show_path %>
-
-           
       <div class="currentUserNavbar">
-        
-
-        <span class="navbar-text">
+      <span class="navbar-text">
         <%= link_to 'Chat', rooms_show_path, class:"nav-link" %>
       </span>
       <span class="navbar-text">

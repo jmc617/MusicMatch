@@ -1,4 +1,5 @@
-<h3>Search for events and create new requests</h3>
+
+<h3 class='white-text'>search live nation events</h3>
 <div class="search">
 <input type="text" id='search-value' value=''name="" size="40" >
 
@@ -8,7 +9,7 @@
 <div id='results'></div>
 <center>
 
-<h3>search requests</h3>
+<h3 class='white-text'>search requests to match</h3>
 
 <%= search_form_for @q, url: url_for(controller: 'events', action: 'new') do |f| %>
 
@@ -24,4 +25,3 @@
     <%= e.date %>
     <hr>
 <% end %>
-
