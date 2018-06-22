@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2018_06_21_182409) do
+
+
+ActiveRecord::Schema.define(version: 2018_06_21_182409) do
+
+ActiveRecord::Schema.define(version: 2018_06_20_204946) do
 
   create_table "activities", force: :cascade do |t|
     t.string "trackable_type"
@@ -30,6 +36,7 @@ ActiveRecord::Schema.define(version: 2018_06_21_182409) do
     t.index ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type"
     t.index ["trackable_type", "trackable_id"], name: "index_activities_on_trackable_type_and_trackable_id"
   end
+
 
   create_table "events", force: :cascade do |t|
     t.string "date"
