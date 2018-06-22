@@ -42,7 +42,7 @@ console.log(searchValue);
 
                   var venue = display.appendChild(document.createElement('div')); venue.innerHTML= json._embedded.events[i]._embedded.venues[0].name
 
-                  //formats date from json in mm/dd/yyyy
+                  //formats date from json into mm/dd/yyyy
                   var formatDate = function(date){
                     var split = date.split('-');
                     var holder = split[0]
@@ -62,9 +62,15 @@ console.log(searchValue);
                   website.innerHTML= 'More Info/Purchase Tickets'
 
                   var price = display.appendChild(document.createElement('div'));
-                  price.innerHTML = 'Price range: $'+Math.round(json._embedded.events[i].priceRanges[0].min)
-                  + ' - $'
-                  + Math.round(json._embedded.events[i].priceRanges[0].max)
+                  
+                  //displays single value if the price min and max are equal
+                  if (json._embedded.events[i].priceRanges[0].min == json._embedded.events[i].priceRanges[0].max) {
+                    price.innerHTML = 'Price: $'+ json._embedded.events[i].priceRanges[0].min
+                  } else {
+                    price.innerHTML = 'Price range: $'+Math.round(json._embedded.events[i].priceRanges[0].min)
+                    + ' - $'
+                    + Math.round(json._embedded.events[i].priceRanges[0].max)
+                  }
 
                   var form = results.appendChild(document.createElement('form'));
 

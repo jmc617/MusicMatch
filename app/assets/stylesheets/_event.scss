@@ -25,6 +25,7 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     margin: auto;
     text-align: center;
+    line-height: 50px;
 }
 
 .col-lg-8{
@@ -60,7 +61,18 @@ border-radius: 50px;
   border-radius: 50px;
 }
 
-#video-background{
+.video-container{
+  max-width: 100%;
+  max-height: 40em;
+  overflow: hidden;
+}
+
+.header{
+  position: absolute;
+  top: 50%;
   width: 100%;
-  margin: -100;
+  font-size: 50px;
+  letter-spacing: 3px;
+  color: #fff;
+  text-align: center;
 }
