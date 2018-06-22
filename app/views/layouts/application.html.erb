@@ -6,7 +6,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <script type='text/javascript' src='config.js'></script>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="icon" href="/assets/music.png">
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
@@ -24,7 +24,7 @@
     <% if user_signed_in? %>
 
 
-      
+
       <%= link_to 'Chat', rooms_show_path %>
 
       <div class="currentUserNavbar">
@@ -33,7 +33,7 @@
           <%= link_to 'Create Event', new_event_path, class:"nav-link" %>
         </span>
         <span class="navbar-text">
-        <%= link_to 'Edit', edit_user_registration_path, class:"nav-link" %>
+        <%= link_to 'Edit Profile', edit_user_registration_path, class:"nav-link" %>
         </span>
         <span class="navbar-text">
           <%= link_to'Logout', destroy_user_session_path, method: :delete, class:"nav-link"%>

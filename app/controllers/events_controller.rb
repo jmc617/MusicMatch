@@ -31,10 +31,12 @@ class EventsController < ApplicationController
   end
 
   def new
+    @q = Event.ransack(params[:q])
+    @events = @q.result(distinct: true)
   end
 
   private
   def event_params
-    params.permit(:performer, :location, :date, :img_url, :url, :price_min, :price_max )
+    params.permit(:performer, :location, :date, :img_url, :url, :price_min, :price_max)
   end
 end
