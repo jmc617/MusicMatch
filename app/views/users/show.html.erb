@@ -16,14 +16,14 @@ Followers
     <div>YOUR EVENTS:</div>
     <% @user.events.each do |e| %>
       <div>
-        <a href="/events/<%= e.id %>"><%= e.performer %></a>
+        <a class="text-white" href="/events/<%= e.id %>"><%= e.performer %></a>
       </div>
     <% end %>
   <% end %>
       <% if @user.matches.exists? %>
       <div>YOUR MATCHES:</div>
       <% @user.matches.each do |m| %>
-      <div>
+      <div class="text-white" >
         <%= Event.find(m.event_id).performer %>
         <a class="btn btn-info" href="/events/<%= m.event_id %>"> View Event </a>
       </div>

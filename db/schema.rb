@@ -12,6 +12,8 @@
 
 ActiveRecord::Schema.define(version: 2018_06_21_182409) do
 
+ActiveRecord::Schema.define(version: 2018_06_20_204946) do
+
   create_table "activities", force: :cascade do |t|
     t.string "trackable_type"
     t.integer "trackable_id"
