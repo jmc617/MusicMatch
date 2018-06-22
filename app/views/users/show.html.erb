@@ -13,7 +13,7 @@ Followers
 <div class="events">
 <% if @user.id == current_user.id %>
   <% if @user.events.exists? %>
-    <div>YOUR EVENTS:</div>
+    <div>YOUR MEETUP REQUESTS:</div>
     <% @user.events.each do |e| %>
       <div>
         <a class="text-white" href="/events/<%= e.id %>"><%= e.performer %></a>
