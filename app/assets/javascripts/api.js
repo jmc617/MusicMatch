@@ -33,7 +33,7 @@ console.log(searchValue);
                   var display = results.appendChild(document.createElement('div'));
 
                   var picture = display.appendChild(document.createElement('img'));
-                  picture.class = ''
+                  picture.style.height = '500px';
                   picture.alt = ' artist image'
                   picture.src = json._embedded.events[i].images[4].url
 
