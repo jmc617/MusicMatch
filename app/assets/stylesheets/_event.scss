@@ -71,16 +71,18 @@ border-radius: 50px;
   position: absolute;
   top: 50%;
   width: 100%;
-  font-size: 50px;
+  font-size: 80px;
   letter-spacing: 3px;
   color: #fff;
   text-align: center;
+  font-family: 'Comfortaa', cursive;
 }
 
-<<<<<<< HEAD
+
 .white-text {
   color: white;
-=======
+}
+
 .feed-card {
     background: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -90,5 +92,5 @@ border-radius: 50px;
     margin: auto;
     text-align: center;
     overflow: hidden;
->>>>>>> 99ddbd8220b6e323ddeb363f87fb2727e4ec124d
+
 }
