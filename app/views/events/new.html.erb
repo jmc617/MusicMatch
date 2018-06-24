@@ -24,12 +24,10 @@
   <%= f.submit %>
 <% end %>
 
-<% @events.reverse.take(20).each do |e| %>
+<% @events.reverse.take(5).each do |e| %>
     <a href="/events/<%= e.id %>"><div><%= e.performer %></div></a>
     <%= e.location %>
     <%= e.date %>
     <hr>
 <% end %>
-
 </div>
-
