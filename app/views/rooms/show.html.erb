@@ -1,6 +1,7 @@
 <!-- <h1>Rooms#show</h1>
 <p>Find me in app/views/rooms/show.html.erb</p>
  -->
+
 <div class="chatwindow">
  	<h1>Chat Messages</h1>
 	
@@ -10,6 +11,8 @@
  	<div class="sendmessageclass">
 	Message:
 	<input type="text" name="message" id="message">
-	<%= link_to('Send', '#', :onclick => "SendMessage();")  %>
-
+	<%#= button_to "Send","#", :onclick =>"SendMessage()", :remote => true %>
+	<span id="sendbutton">
+	<%= link_to "Send","#",style: 'color:#FFFFFF;', :onclick =>"SendMessage()" %>
+	</span>
 </div>
