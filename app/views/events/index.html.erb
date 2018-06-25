@@ -12,10 +12,12 @@
   <div class="col-lg-8" id='event-index'>
     <img class="icons" src="/assets/ticket.png" height="50" alt="">
     <h1> Latest Meetup Requests </h1>
+    <div class="box-content2">
   <% @events.reverse.take(20).each do |e| %>
       <a href="/events/<%= e.id %>"><div><%= e.performer %></div></a>
       <hr>
   <% end %>
+</div>
 </div>
 <div class="col">
   <img class="icons" src="/assets/megaphone-10-240.png" height="50" alt="">
