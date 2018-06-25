@@ -34,11 +34,11 @@ Followers
   <% end %>
 <% else %>
 <% if @user.events.exists? %>
-  <div>events:</div>
+  <div>EVENTS:</div>
   <% @user.events.each do |e| %>
     <div>
 
-      <a href="/events/<%= e.id %>"><%= e.performer %></a>
+      <a class="text-white" href="/events/<%= e.id %>"><%= e.performer %></a>
     </div>
   <% end %>
 <% end %>
