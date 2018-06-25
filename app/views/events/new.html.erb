@@ -1,20 +1,15 @@
-
-<div class="search-header">
-  <h3>search live nation events</h3>
-</div>
-
 <div class="search-fields">
 
 <div class="search">
-<input type="text" id='search-value' value=''name="" size="40" >
+<input type="text" id='search-value' value=''name="" size="40" placeholder="search live nation events" >
 
 <input type="submit" id='search-submit' value='search'>
-</div>
+
 <center>
 <div id='results'></div>
 <center>
 
-<h3 class='white-text'>search meetup requests</h3>
+<h3>search meetup requests</h3>
 
 <%= search_form_for @q, url: url_for(controller: 'events', action: 'new') do |f| %>
 
@@ -30,4 +25,5 @@
     <%= e.date %>
     <hr>
 <% end %>
+</div>
 </div>

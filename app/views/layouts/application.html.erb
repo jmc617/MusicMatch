@@ -23,9 +23,8 @@
     <% if user_signed_in? %>
 
 
-      <div class="currentUserNavbar">
-      <span class="navbar-text">
 
+      <span class="navbar-text">
         <%= link_to 'Chat', rooms_show_path, class:"nav-link" %>
       </span>
       <span class="navbar-text">
@@ -49,7 +48,7 @@
       <%= link_to "Log In", new_user_session_path, class:"nav-link" %>
     </span>
       <% end %>
-    </div>
+
   </div>
       </nav>
     <p class="notice"><%= notice %></p>
