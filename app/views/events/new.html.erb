@@ -1,14 +1,15 @@
-<h3>Search for events and create new requests</h3>
+<div class="search-fields">
+
 <div class="search">
-<input type="text" id='search-value' value=''name="" size="40" >
+<input type="text" id='search-value' value=''name="" size="40" placeholder="search live nation events" >
 
 <input type="submit" id='search-submit' value='search'>
-</div>
+
 <center>
 <div id='results'></div>
 <center>
 
-<h3>search requests</h3>
+<h3>search meetup requests</h3>
 
 <%= search_form_for @q, url: url_for(controller: 'events', action: 'new') do |f| %>
 
@@ -18,10 +19,11 @@
   <%= f.submit %>
 <% end %>
 
-<% @events.reverse.take(20).each do |e| %>
+<% @events.reverse.take(5).each do |e| %>
     <a href="/events/<%= e.id %>"><div><%= e.performer %></div></a>
     <%= e.location %>
     <%= e.date %>
     <hr>
 <% end %>
-
+</div>
+</div>

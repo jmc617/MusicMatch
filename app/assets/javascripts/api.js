@@ -4,7 +4,6 @@ var results = document.getElementById('results')
 var searchValue = document.getElementById('search-value').value
 var key = config.KEY
 
-console.log(searchValue);
   searchSubmit.addEventListener('click', function() {
 
     var results = document.getElementById('results')
@@ -27,7 +26,7 @@ console.log(searchValue);
                   var message = results.appendChild(document.createElement('div'));
                   message.innerHTML = 'Sorry! No results found. Try again!'
                 } else {
-                //display first 20 results
+
                 for (var i = 0; i < 20; i++) {
 
                   var display = results.appendChild(document.createElement('div'));
@@ -59,10 +58,11 @@ console.log(searchValue);
 
                   var website = display.appendChild(document.createElement('a'));
                   website.href= json._embedded.events[i].url
+                  website.target= "_blank" 
                   website.innerHTML= 'More Info/Purchase Tickets'
 
                   var price = display.appendChild(document.createElement('div'));
-                  
+
                   //displays single value if the price min and max are equal
                   if (json._embedded.events[i].priceRanges[0].min == json._embedded.events[i].priceRanges[0].max) {
                     price.innerHTML = 'Price: $'+ json._embedded.events[i].priceRanges[0].min

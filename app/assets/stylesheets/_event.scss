@@ -71,10 +71,16 @@ border-radius: 50px;
   position: absolute;
   top: 50%;
   width: 100%;
-  font-size: 50px;
+  font-size: 80px;
   letter-spacing: 3px;
   color: #fff;
   text-align: center;
+  font-family: 'Comfortaa', cursive;
+}
+
+
+.white-text {
+  color: white;
 }
 
 .feed-card {
@@ -86,4 +92,5 @@ border-radius: 50px;
     margin: auto;
     text-align: center;
     overflow: hidden;
+
 }

@@ -5,13 +5,13 @@
 </div>
 
 
-<h1 class="header" >Never Miss A Moment!</h1>
+<h1 class="header">Never Miss a Moment!</h1>
 
 <div class="container-fluid">
  <div class="row align-items-start">
   <div class="col-lg-8">
     <img class="icons" src="/assets/ticket.png" height="50" alt="">
-    <h1> Latest Events </h1>
+    <h1> Latest Meetup Requests </h1>
   <% @events.reverse.take(20).each do |e| %>
       <a href="/events/<%= e.id %>"><div><%= e.performer %></div></a>
       <hr>

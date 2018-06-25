@@ -13,19 +13,20 @@
 <% else %>
 <div>Ticket price range: $<%= @event.price_min %> - $<%= @event.price_max %></div>
 <%end%>
-<%= @event.url %>
 <% if @matches.exists? %>
   <div>Matches:
     <% @matches.each do |m| %>
-    <div><%= User.find(m.user_id).username %></div>
+      <% if m.user_id == current_user.id %>
+        <div>You!</div>
+      <%else%>
+        <div><%= User.find(m.user_id).username %></div>
+      <%end%>
     <% end %>
   </div>
 <% end %>
 
-
-
 <% if user_signed_in? %>
-  <% if @event.user_id != current_user.id && !Match.where(user_id: current_user.id).exists?%>
+  <% if @event.user_id != current_user.id && !Match.exists?(user_id: current_user.id, event_id: @event.id) %>
 
     <form class="" action="/assign" method="post">
       <input type="hidden" name="event_id" value="<%= @event.id %>">
@@ -43,4 +44,4 @@
 <% end %>
 <% end %>
 </div>
-</div> 
+</div>
