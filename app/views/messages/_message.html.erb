@@ -1,8 +1,9 @@
 <div class="message">
-	<p>
+	
 	<%= image_tag message.user.avatar.url(:thumb) %>
-	<%= message.user.email %>
-	<%= message.created_at %>
-	<%= message.content %>	
-	</p>
+	<%= message.user.firstName %>
+	<%= message.user.lastName %>
+	<%= message.created_at.strftime("%B %d at %I:%M %p") %>:
+	<b><%= message.content %></b>
+	
 </div>
