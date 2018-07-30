@@ -6,7 +6,6 @@ ruby '2.4.1'
 gem 'jquery-rails'
 gem 'devise'
 gem 'ransack', github: 'activerecord-hackery/ransack'
-gem 'dotenv-rails', groups: [:development, :test]
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
@@ -32,7 +31,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'paperclip'
-gem 'aws-sdk', '~> 2'
+gem 'aws-sdk', '~> 3.0', '>= 3.0.1'
+gem 'aws-sdk-s3', '~> 1.0.0.rc2'
 gem 'public_activity'
 gem 'bootstrap'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
