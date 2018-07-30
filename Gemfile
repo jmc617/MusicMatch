@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.1'
 #added gems
+
 gem 'jquery-rails'
 gem 'devise'
 gem 'ransack', github: 'activerecord-hackery/ransack'
@@ -52,6 +53,7 @@ group :production do
 end
 
 group :development, :test do
+  gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
