@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.1'
 #added gems
+gem 'pg'
 
 gem 'jquery-rails'
 gem 'devise'
@@ -49,11 +50,10 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :production do
-  gem 'pg'
+
 end
 
 group :development, :test do
-  gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
