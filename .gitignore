@@ -6,7 +6,7 @@
 
 
 /app/assets/javascripts/config.js
-
+.env
 
 # Ignore bundler config.
 /.bundle
