@@ -1,5 +1,7 @@
 {
   "name": "finalgroupapp",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "yarn": "^1.9.2"
+  }
 }
