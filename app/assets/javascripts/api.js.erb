@@ -3,6 +3,18 @@ var searchSubmit = document.getElementById('search-submit')
 var results = document.getElementById('results')
 var searchValue = document.getElementById('search-value').value
 
+var emailField = document.getElementsByClassName('email-field');
+var passwordField = document.getElementsByClassName('password-field');
+var guestUserBtn = document.getElementsByClassName('guest-user-btn');
+
+guestUserBtn[0].addEventListener("click", function(){
+    console.log('click');
+    
+    emailField[0].value = 'testuser@gmail.com'
+    passwordField[0].value =  'jessica' 
+})
+
+
   searchSubmit.addEventListener('click', function() {
 
     var results = document.getElementById('results')

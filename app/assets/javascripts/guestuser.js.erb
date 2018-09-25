@@ -4,6 +4,8 @@ $(document).on("turbolinks:load", function(){
     var guestUserBtn = document.getElementsByClassName('guest-user-btn');
 
     guestUserBtn[0].addEventListener("click", function(){
+        console.log('click');
+        
         emailField[0].value = 'testuser@gmail.com'
         passwordField[0].value =  'jessica' 
     })
