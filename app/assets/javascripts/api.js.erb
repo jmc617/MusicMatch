@@ -104,7 +104,7 @@ var searchValue = document.getElementsByClassName('search-value')[0].value
                   input.value = json._embedded.events[i].url
                   input.name = 'url'
 
-                  if (json.hasOwnProperty('priceRanges')) {
+                  
                     input = form.appendChild(document.createElement('input'))
                     input.type = 'hidden'
                     input.value = Math.round(json._embedded.events[i].priceRanges[0].min)
@@ -114,7 +114,7 @@ var searchValue = document.getElementsByClassName('search-value')[0].value
                     input.type = 'hidden'
                     input.value = Math.round(json._embedded.events[i].priceRanges[0].max)
                     input.name = 'price_max'
-                  }
+                  
 
                   submit = form.appendChild(document.createElement('input'));
                   submit.type = 'submit';
