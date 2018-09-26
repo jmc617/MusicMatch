@@ -1,3 +1,4 @@
+//TODO: investigate if statement for json nested properties
 $(document).on("turbolinks:load", function(){
 var searchSubmit = document.getElementsByClassName('search-submit')[0]
 var results = document.getElementsByClassName('results')[0]
@@ -29,7 +30,6 @@ var searchValue = document.getElementsByClassName('search-value')[0].value
                 for (var i = 0; i < 20; i++) {
 
                   var display = results.appendChild(document.createElement('div'));
-
                   var picture = display.appendChild(document.createElement('img'));
                   picture.style.height = '500px';
                   picture.alt = ' artist image'
@@ -63,13 +63,15 @@ var searchValue = document.getElementsByClassName('search-value')[0].value
                   var price = display.appendChild(document.createElement('div'));
 
                   //displays single value if the price min and max are equal
-                  if (json._embedded.events[i].priceRanges && json._embedded.events[i].priceRanges[0].min == json._embedded.events[i].priceRanges[0].max) {
-                    price.innerHTML = 'Price: $'+ json._embedded.events[i].priceRanges[0].min
-                  } else {
-                    price.innerHTML = 'Price range: $'+Math.round(json._embedded.events[i].priceRanges[0].min)
-                    + ' - $'
-                    + Math.round(json._embedded.events[i].priceRanges[0].max)
-                  }
+
+                    if (json._embedded.events[i].priceRanges[0].min == json._embedded.events[i].priceRanges[0].max) {
+                      price.innerHTML = 'Price: $'+ json._embedded.events[i].priceRanges[0].min
+                    } else {
+                    price.innerHTML = 'Price range: $'+ Math.round(json._embedded.events[i].priceRanges[0].min)
+                      + ' - $'
+                      + Math.round(json._embedded.events[i].priceRanges[0].max)
+                    }
+                  
 
                   var form = results.appendChild(document.createElement('form'));
 
@@ -102,15 +104,17 @@ var searchValue = document.getElementsByClassName('search-value')[0].value
                   input.value = json._embedded.events[i].url
                   input.name = 'url'
 
-                  input = form.appendChild(document.createElement('input'))
-                  input.type = 'hidden'
-                  input.value = Math.round(json._embedded.events[i].priceRanges[0].min)
-                  input.name = 'price_min'
+                  if (json.hasOwnProperty('priceRanges')) {
+                    input = form.appendChild(document.createElement('input'))
+                    input.type = 'hidden'
+                    input.value = Math.round(json._embedded.events[i].priceRanges[0].min)
+                    input.name = 'price_min'
 
-                  input = form.appendChild(document.createElement('input'))
-                  input.type = 'hidden'
-                  input.value = Math.round(json._embedded.events[i].priceRanges[0].max)
-                  input.name = 'price_max'
+                    input = form.appendChild(document.createElement('input'))
+                    input.type = 'hidden'
+                    input.value = Math.round(json._embedded.events[i].priceRanges[0].max)
+                    input.name = 'price_max'
+                  }
 
                   submit = form.appendChild(document.createElement('input'));
                   submit.type = 'submit';
