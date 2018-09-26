@@ -1,6 +1,3 @@
-<% content_for :page_scripts do %>
-  <script></script>
-<% end %>
 
 <div class="user-card">
 <h2>Log in</h2>
@@ -30,5 +27,10 @@
 
 <%= render "devise/shared/links" %>
 
-<button class='guest-user-btn'> Guest User</button>
+<button class='guest-user-btn'>Guest User</button>
 </div>
+
+# dummy divs to allow JS to work TODO: investigate single page JS
+<div class='search-submit js'></div>
+<div class='results js '></div>
+<input class='search-value js' ></input>

@@ -1,24 +1,12 @@
 $(document).on("turbolinks:load", function(){
-var searchSubmit = document.getElementById('search-submit')
-var results = document.getElementById('results')
-var searchValue = document.getElementById('search-value').value
-
-var emailField = document.getElementsByClassName('email-field');
-var passwordField = document.getElementsByClassName('password-field');
-var guestUserBtn = document.getElementsByClassName('guest-user-btn');
-
-guestUserBtn[0].addEventListener("click", function(){
-    console.log('click');
-    
-    emailField[0].value = 'testuser@gmail.com'
-    passwordField[0].value =  'jessica' 
-})
-
+var searchSubmit = document.getElementsByClassName('search-submit')[0]
+var results = document.getElementsByClassName('results')[0]
+var searchValue = document.getElementsByClassName('search-value')[0].value
 
   searchSubmit.addEventListener('click', function() {
 
-    var results = document.getElementById('results')
-    var searchValue = document.getElementById('search-value').value
+    var results = document.getElementsByClassName('results')[0]
+    var searchValue = document.getElementsByClassName('search-value')[0].value
     results.innerHTML = ''
 
     search(searchValue,results)
@@ -75,7 +63,7 @@ guestUserBtn[0].addEventListener("click", function(){
                   var price = display.appendChild(document.createElement('div'));
 
                   //displays single value if the price min and max are equal
-                  if (json._embedded.events[i].priceRanges[0].min == json._embedded.events[i].priceRanges[0].max) {
+                  if (json._embedded.events[i].priceRanges && json._embedded.events[i].priceRanges[0].min == json._embedded.events[i].priceRanges[0].max) {
                     price.innerHTML = 'Price: $'+ json._embedded.events[i].priceRanges[0].min
                   } else {
                     price.innerHTML = 'Price range: $'+Math.round(json._embedded.events[i].priceRanges[0].min)
